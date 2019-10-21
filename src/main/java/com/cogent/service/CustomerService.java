@@ -28,6 +28,13 @@ public class CustomerService {
 		return list;
 		
 	}
+	public List<Customers> addAllCustomer(List<Customers> cust){
+		List<Customers> list = new ArrayList<>();
+		custRepo.saveAll(list);
+		return list;
+		
+		
+	}
 	public Customers addCustomer(Customers cust){
 		custRepo.save(cust);
 		return cust;

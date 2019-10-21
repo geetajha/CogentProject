@@ -1,22 +1,30 @@
 package com.cogent.model;
 
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Customer")
+@Table(name="Customers")
 public class Customers {
-	@Id @GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name="cust_id")
 	private Integer cuId;
 	@Column(name="cust_name")
 	private String cuName;
 	@Column(name="cu_phone")
 	private int cuPhone;
+	
+	
 	public Integer getCuId() {
 		return cuId;
 	}
@@ -35,6 +43,9 @@ public class Customers {
 	public void setCuPhone(int cuPhone) {
 		this.cuPhone = cuPhone;
 	}
+	
+	
+	
 	
 
 }

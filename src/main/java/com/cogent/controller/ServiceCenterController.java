@@ -44,7 +44,7 @@ public class ServiceCenterController {
       return new ResponseEntity<>(header, HttpStatus.CREATED);
   }
 	 @PutMapping("/update")
-	    public ResponseEntity<ServiceCenter>    updateEmployee(@RequestBody ServiceCenter sercen){
+	    public ResponseEntity<ServiceCenter>    updateBranches(@RequestBody ServiceCenter sercen){
 		 sercenService.updateServiceCenter(sercen);
 	     return new ResponseEntity<>(sercen, HttpStatus.OK);
 	     

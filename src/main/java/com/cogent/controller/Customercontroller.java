@@ -49,6 +49,17 @@ public class Customercontroller {
 	                .buildAndExpand(cust.getCuId()).toUri());
 	        return new ResponseEntity<Void>(header, HttpStatus.CREATED);
 	    }
+	    //********************************************************
+
+	/*
+	 * @PostMapping("/insertall") public ResponseEntity<Void> Customer(@RequestBody
+	 * List<Customers> list, UriComponentsBuilder builder){ List<Customers> flag =
+	 * custService.addAllCustomer(list); if(flag==null) return new
+	 * ResponseEntity<Void>(HttpStatus.CONFLICT); HttpHeaders header = new
+	 * HttpHeaders(); header.setLocation(builder.path("/customer")
+	 * .buildAndExpand(((Customers) list).getCuId()).toUri()); return new
+	 * ResponseEntity<Void>(header, HttpStatus.CREATED); }
+	 */
 	    
 	    @PutMapping("/update")
 	    public ResponseEntity<Customers>    updateCustomer(@RequestBody Customers cust){
