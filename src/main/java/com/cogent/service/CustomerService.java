@@ -43,8 +43,8 @@ public class CustomerService {
 	public void updateCustomer(Customers cust) {
 		custRepo.save(cust);
 	}
-	public void deleteCustomer(Customers cust) {
-		custRepo.delete(cust);
+	public void deleteCustomer(Integer cuId) {
+		custRepo.deleteById(cuId);
 	}
 	
 	

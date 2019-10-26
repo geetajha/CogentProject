@@ -16,7 +16,7 @@ public class Customers {
 	@Column(name="cust_name")
 	private String cuName;
 	@Column(name="cu_phone")
-	private int cuPhone;
+	private Integer cuPhone;
 	@Column(name="cu_Add")
 	private String cuAdd;
 	@Column(name="cu_Email")
@@ -47,10 +47,10 @@ public class Customers {
 	public void setCuName(String cuName) {
 		this.cuName = cuName;
 	}
-	public int getCuPhone() {
+	public Integer getCuPhone() {
 		return cuPhone;
 	}
-	public void setCuPhone(int cuPhone) {
+	public void setCuPhone(Integer cuPhone) {
 		this.cuPhone = cuPhone;
 	}
 	

@@ -37,7 +37,8 @@ public class Customercontroller {
 	    
 	    @GetMapping("/allcust")
 	    public ResponseEntity <List<Customers>>getAllCustomer() {
-	    	List<Customers> cust = custService.getAllCustomer();	        
+	    	List<Customers> cust = custService.getAllCustomer();
+	    	System.out.println("got request "+cust.size());
 	        return new ResponseEntity<>(cust,HttpStatus.OK);
 	    }
 	    @PostMapping("/insert")
@@ -45,6 +46,7 @@ public class Customercontroller {
 	        Customers flag = custService.addCustomer(cust);
 	        if(flag==null)
 	           return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+	        System.out.println("value inserted");
 	        HttpHeaders header = new HttpHeaders();
 	        header.setLocation(builder.path("/customer")
 	                .buildAndExpand(cust.getCuId()).toUri());
@@ -68,10 +70,13 @@ public class Customercontroller {
 	     return new ResponseEntity<Customers>(cust, HttpStatus.OK);
 	     
 	 }
-	    @DeleteMapping("/delete")
-	    public ResponseEntity<Customers>    deleteCustomers(@RequestBody Customers cust){
-	    custService.deleteCustomer(cust);
-	     return new ResponseEntity<Customers>(cust, HttpStatus.OK);
+	    @DeleteMapping("/delete/{cuId}")
+	    public ResponseEntity <List<Customers>>   deleteCustomers(@PathVariable("cuId")Integer cuId){
+	    		
+	    custService.deleteCustomer(cuId);
+	    List<Customers> cust = custService.getAllCustomer();
+	    return new ResponseEntity<>(cust,HttpStatus.OK);
+	    
 	     
 	 }
 	}
