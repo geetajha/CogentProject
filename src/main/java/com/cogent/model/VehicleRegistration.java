@@ -15,7 +15,7 @@ import javax.persistence.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
-@Table(name="VehicleReg")
+@Table(name="VehicleR")
 public class VehicleRegistration {
 	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name="V_ID")
@@ -28,6 +28,8 @@ public class VehicleRegistration {
 	private Date wsdate;
 	@Column(name="W_End_Date")
 	private Date wedate;
+	
+	
 	@ManyToOne(cascade = CascadeType.PERSIST)
     private Customers custs;
 	

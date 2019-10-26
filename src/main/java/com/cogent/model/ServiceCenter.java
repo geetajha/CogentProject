@@ -15,8 +15,7 @@ public class ServiceCenter {
 	private Integer BranchId;
 	@Column(name = "BranchName")
 	private String BranchName;
-	@Column(name = "BranchManagerName")
-	private String BranchManagerName;
+	
 	public Integer getBranchId() {
 		return BranchId;
 	}
@@ -29,21 +28,18 @@ public class ServiceCenter {
 	public void setBranchName(String branchName) {
 		BranchName = branchName;
 	}
-	public String getBranchManagerName() {
-		return BranchManagerName;
-	}
-	public void setBranchManagerName(String branchManagerName) {
-		BranchManagerName = branchManagerName;
-	}
+	
+	
+	
 	@Override
 	public String toString() {
-		return "ServiceCenter [BranchId=" + BranchId + ", BranchName=" + BranchName + ", BranchManagerName="
-				+ BranchManagerName + "]";
+		return "ServiceCenter [BranchId=" + BranchId + ", BranchName=" + BranchName + "]";
 	}
-	public ServiceCenter(String branchName, String branchManagerName) {
+	
+	public ServiceCenter(Integer branchId, String branchName) {
 		super();
+		BranchId = branchId;
 		BranchName = branchName;
-		BranchManagerName = branchManagerName;
 	}
 	public ServiceCenter() {
 		super();

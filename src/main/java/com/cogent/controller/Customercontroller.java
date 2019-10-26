@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +20,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.cogent.model.Customers;
 import com.cogent.service.CustomerService;
 
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/customer")
 @RestController
 public class Customercontroller {
@@ -27,9 +28,9 @@ public class Customercontroller {
 	    @Autowired
 	    private CustomerService custService;
 	    
-	    @GetMapping("/{custId}")
-	    public ResponseEntity <Customers>getCustomerById(@PathVariable("custId") Integer custId) {
-	    	Customers cust = custService.getCustomerById(custId);
+	    @GetMapping("/{cuId}")
+	    public ResponseEntity <Customers>getCustomerById(@PathVariable("cuId") Integer cuId) {
+	    	Customers cust = custService.getCustomerById(cuId);
 	        
 	        return new ResponseEntity<Customers>(cust,HttpStatus.OK);
 	    }
@@ -68,7 +69,7 @@ public class Customercontroller {
 	     
 	 }
 	    @DeleteMapping("/delete")
-	    public ResponseEntity<Customers>    updateProduct(@RequestBody Customers cust){
+	    public ResponseEntity<Customers>    deleteCustomers(@RequestBody Customers cust){
 	    custService.deleteCustomer(cust);
 	     return new ResponseEntity<Customers>(cust, HttpStatus.OK);
 	     
