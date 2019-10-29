@@ -35,13 +35,13 @@ public class Customercontroller {
 	        return new ResponseEntity<Customers>(cust,HttpStatus.OK);
 	    }
 	    
-	    @GetMapping("/allcust")
+	    @GetMapping("/searchcust")
 	    public ResponseEntity <List<Customers>>getAllCustomer() {
 	    	List<Customers> cust = custService.getAllCustomer();
 	    	System.out.println("got request "+cust.size());
 	        return new ResponseEntity<>(cust,HttpStatus.OK);
 	    }
-	    @PostMapping("/insert")
+	    @PostMapping("/insertcust")
 	       public ResponseEntity<Void> Customer(@RequestBody Customers cust, UriComponentsBuilder builder){
 	        Customers flag = custService.addCustomer(cust);
 	        if(flag==null)

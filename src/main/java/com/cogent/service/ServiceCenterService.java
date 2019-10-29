@@ -15,9 +15,9 @@ import com.cogent.model.ServiceCenter;
 public class ServiceCenterService {
 	@Autowired
 	private ServiceCentreRepository serviceRepo;
-	public ServiceCenter getBranchById(Integer serviceId)
+	public ServiceCenter getBranchById(Integer branchId)
 	{
-		ServiceCenter sercen= serviceRepo.findById(serviceId).get();
+		ServiceCenter sercen= serviceRepo.findById(branchId).get();
 	
 		
 		return sercen;	
@@ -37,8 +37,8 @@ public class ServiceCenterService {
 	public void updateServiceCenter(ServiceCenter sercen) {
 		serviceRepo.save(sercen);
 	}
-	public void deleteBranch(Integer prdId) {
-		serviceRepo.deleteById(prdId);
+	public void deleteBranch(Integer branchId) {
+		serviceRepo.deleteById(branchId);
 	}
 	
 	}

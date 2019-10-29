@@ -12,36 +12,36 @@ import javax.persistence.Table;
 public class ServiceCenter {
 	@Id @GeneratedValue(strategy=GenerationType.SEQUENCE)
 	@Column(name = "BranchId")
-	private Integer BranchId;
+	private Integer branchId;
 	@Column(name = "BranchName")
-	private String BranchName;
-	
+	private String branchName;
+	@Column(name = "branchAddress")
+	private String branchAddress;
 	public Integer getBranchId() {
-		return BranchId;
+		return branchId;
 	}
 	public void setBranchId(Integer branchId) {
-		BranchId = branchId;
+		this.branchId = branchId;
 	}
 	public String getBranchName() {
-		return BranchName;
+		return branchName;
 	}
 	public void setBranchName(String branchName) {
-		BranchName = branchName;
+		this.branchName = branchName;
 	}
-	
-	
-	
+	public String getBranchAddress() {
+		return branchAddress;
+	}
+	public void setBranchAddress(String branchAddress) {
+		this.branchAddress = branchAddress;
+	}
 	@Override
 	public String toString() {
-		return "ServiceCenter [BranchId=" + BranchId + ", BranchName=" + BranchName + "]";
+		return "ServiceCenter [BranchId=" + branchId + ", branchName=" + branchName + ", branchAddress=" + branchAddress
+				+ "]";
 	}
 	
-	public ServiceCenter(Integer branchId, String branchName) {
-		super();
-		BranchId = branchId;
-		BranchName = branchName;
+	
+	
 	}
-	public ServiceCenter() {
-		super();
-	}
-}
+

@@ -21,7 +21,7 @@ public class VehicleRegistration {
 	@Column(name="V_ID")
 	private Integer vid;
 	@Column(name="V_Number")
-	private int vnum;
+	private String vnum;
 	@Column(name="Brand")
 	private String brand;
 	@Column(name="W_Start_Date")
@@ -67,10 +67,10 @@ public class VehicleRegistration {
 	public void setVid(Integer vid) {
 		this.vid = vid;
 	}
-	public int getVnum() {
+	public String getVnum() {
 		return vnum;
 	}
-	public void setVnum(int vnum) {
+	public void setVnum(String vnum) {
 		this.vnum = vnum;
 	}
 	public String getBrand() {

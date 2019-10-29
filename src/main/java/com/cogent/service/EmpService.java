@@ -33,6 +33,11 @@ public class EmpService {
 	public void updateEmployee(Employee emp) {
 		empRepo.save(emp);
 	}
+	public void deleteEmployee(Integer Id) {
+		 empRepo.deleteById(Id);
+		
+	}
+	
 	
 	
 
