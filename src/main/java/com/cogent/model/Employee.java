@@ -12,51 +12,51 @@ import javax.persistence.Table;
 public class Employee {
 	@Id @GeneratedValue(strategy=GenerationType.SEQUENCE)
 	@Column(name="Empid")
-	private Integer EmpId;
+	private Integer empId;
 	@Column(name="EmpName")
-	private String EmpName;
+	private String empName;
 	@Column(name="EmpProfile")
-	private String EmpProfile;
+	private String empProfile;
 	@Column(name="EmpAddress")
-	private String EmpAddress;
+	private String empAddress;
 	@Column(name="EmpPhone")
-	private String  EmpPhone;
-	public String getEmpName() {
-		return EmpName;
-	}
-	public void setEmpName(String empName) {
-		EmpName = empName;
-	}
-	public String getEmpProfile() {
-		return EmpProfile;
-	}
-	public void setEmpProfile(String empProfile) {
-		EmpProfile = empProfile;
-	}
-	public String getEmpAddress() {
-		return EmpAddress;
-	}
-	public void setEmpAddress(String empAddress) {
-		EmpAddress = empAddress;
-	}
-	public String getEmpPhone() {
-		return EmpPhone;
-	}
-	public void setEmpPhone(String empPhone) {
-		EmpPhone = empPhone;
-	}
-	
+	private String  empPhone;
 	public Integer getEmpId() {
-		return EmpId;
+		return empId;
 	}
 	public void setEmpId(Integer empId) {
-		EmpId = empId;
+		this.empId = empId;
+	}
+	public String getEmpName() {
+		return empName;
+	}
+	public void setEmpName(String empName) {
+		this.empName = empName;
+	}
+	public String getEmpProfile() {
+		return empProfile;
+	}
+	public void setEmpProfile(String empProfile) {
+		this.empProfile = empProfile;
+	}
+	public String getEmpAddress() {
+		return empAddress;
+	}
+	public void setEmpAddress(String empAddress) {
+		this.empAddress = empAddress;
+	}
+	public String getEmpPhone() {
+		return empPhone;
+	}
+	public void setEmpPhone(String empPhone) {
+		this.empPhone = empPhone;
 	}
 	@Override
 	public String toString() {
-		return "Employee [EmpName=" + EmpName + ", EmpProfile=" + EmpProfile + ", EmpAddress=" + EmpAddress
-				+ ", EmpPhone=" + EmpPhone + "]";
+		return "Employee [empId=" + empId + ", empName=" + empName + ", empProfile=" + empProfile + ", empAddress="
+				+ empAddress + ", empPhone=" + empPhone + "]";
 	}
+	
 	
 
 }

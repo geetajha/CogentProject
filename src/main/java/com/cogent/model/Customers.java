@@ -1,14 +1,17 @@
 package com.cogent.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="VCustomers")
+@Table(name="VCustomer")
 public class Customers {
 	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name="cust_id")
@@ -54,8 +57,22 @@ public class Customers {
 		this.cuPhone = cuPhone;
 	}
 	
+	/*@OneToMany(mappedBy = "custs")
+    private List<VehicleRegistration> veh = new ArrayList<VehicleRegistration>();
+
+
+	public List<VehicleRegistration> getVeh() {
+		return veh;
+	}
+	public void setVeh(List<VehicleRegistration> veh) {
+		this.veh = veh;*/
+	}
+	
+	
+	
+	
 	
 	
 	
 
-}
+

@@ -32,8 +32,9 @@ public class ServiceCenterController {
 	        
 	        return new ResponseEntity<ServiceCenter>(sercen,HttpStatus.OK);
 	    }
-	 @GetMapping("/searchbranch")
+	 @GetMapping("/allbranch")
 	    public ResponseEntity <List<ServiceCenter>>getAllBranches() {
+		 
 	    	List<ServiceCenter> sercen = sercenService.getAllServiceCenter();	        
 	        return new ResponseEntity<>(sercen,HttpStatus.OK);
 	    }
@@ -48,20 +49,30 @@ public class ServiceCenterController {
               .buildAndExpand(sercen.getBranchId()).toUri());
       return new ResponseEntity<>(header, HttpStatus.CREATED);
   }
-	 @PutMapping("/update")
+	 @PutMapping("/updatebranch")
 	    public ResponseEntity<ServiceCenter>    updateBranches(@RequestBody ServiceCenter sercen){
 		 sercenService.updateServiceCenter(sercen);
 	     return new ResponseEntity<>(sercen, HttpStatus.OK);
 	     
 	 }
-	 @DeleteMapping("/delete/{brId}")
-	    public ResponseEntity <List<ServiceCenter>>   deleteCustomers(@PathVariable("brId")Integer brId){
+	 @DeleteMapping("/deletebranch/{brId}")
+	    public ResponseEntity <List<ServiceCenter>>   deleteBranches(@PathVariable("brId")Integer brId){
 	    		
 		 sercenService.deleteBranch(brId);
-	    return new ResponseEntity<>(HttpStatus.OK);
+		 List<ServiceCenter> sercen = sercenService.getAllServiceCenter();
+	    return new ResponseEntity<>(sercen,HttpStatus.OK);
 	    
 	     
 	 }
+	 
+	 
+	 @GetMapping("searchBranch/{branchName}")
+	    public ResponseEntity <List<ServiceCenter>> getBranchByBranchName(@PathVariable("branchName") String branchName) {
+		 System.out.println("Your Branch Name Is"+branchName);
+		 List<ServiceCenter> sercen = sercenService.getBranchByBranchName(branchName);
+	        System.out.println("Calling BY BranchName"+sercen);
+	        return new ResponseEntity <>(sercen,HttpStatus.OK);
+	    }
 	     
 	 
 

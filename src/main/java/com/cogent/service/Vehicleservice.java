@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.cogent.dao.VehicleRepository;
 import com.cogent.model.Customers;
+import com.cogent.model.ServiceCenter;
 import com.cogent.model.VehicleRegistration;
 
 @Service
@@ -33,10 +34,27 @@ public class Vehicleservice {
 	{
 		return vRepo.save(vrg);
 	}
-	public  void deleteVehicle(VehicleRegistration vrg)
+	public  void deleteVehicle(Integer vId)
 	{
-		vRepo.delete(vrg);
+		vRepo.deleteById(vId);
 	}
+	public List<VehicleRegistration> getVehicleByNo(Integer vNum)
+	{
+		List<VehicleRegistration> vh1 = new ArrayList<VehicleRegistration>();
+		List<VehicleRegistration> vh2 = (List<VehicleRegistration>) vRepo.findAll();
+		System.out.println("Argument for branchname is"+vNum);
+		for(VehicleRegistration vh:vh2)
+		{
+			if(((VehicleRegistration) vh).getvNum()==vNum)
+			{
+				System.out.println("vNum"+vh);
+				vh1.add(vh);
+			}
+		}
+     System.out.println(vh1);
+		return vh1;	
+	}
+	
 	
 	
 	

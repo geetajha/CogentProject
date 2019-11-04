@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.cogent.dao.CustomerRepository;
 import com.cogent.model.Customers;
+import com.cogent.model.ServiceCenter;
 
 
 @Service
@@ -46,10 +47,27 @@ public class CustomerService {
 	public void deleteCustomer(Integer cuId) {
 		custRepo.deleteById(cuId);
 	}
+	public List<Customers> getCustomerByCustomerName(String customerName)
+	{
+		List<Customers> custs = new ArrayList<Customers>();
+		List<Customers> customer = (List<Customers>) custRepo.findAll();
+		System.out.println("Argument for branchname is"+customerName);
+		for(Customers c:customer)
+		{
+			if(c.getCuName().contains(customerName))
+			{
+				System.out.println("Customers"+c);
+				custs.add(c);
+			}
+		}
+     System.out.println(custs);
+		return custs;	
+	}
 	
 	
+	}
 
-}
+
 
 
 

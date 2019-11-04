@@ -19,6 +19,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.cogent.model.Customers;
 import com.cogent.model.Employee;
+import com.cogent.model.ServiceCenter;
 import com.cogent.service.EmpService;
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/employee")
@@ -56,14 +57,22 @@ public class EmployeeController {
 	     
 	 }
 
-	    @DeleteMapping("/delete/{empId}")
+	    @DeleteMapping("/deletemployee/{empId}")
 	    public ResponseEntity <List<Employee>>   deleteEmployee(@PathVariable("empId")Integer empId){
-	    		
-	    empService.deleteEmployee(empId);
-	   empService.deleteEmployee(empId);
-	    return new ResponseEntity<>(HttpStatus.OK);
+	    	empService.deleteEmployee(empId);
+		    List<Employee> emp = empService.getAllEmployee();
+	
+	    
+	   
+	    return new ResponseEntity<>(emp,HttpStatus.OK);
 	    
 	     
 	 }
+	    
+	    
+	    
+	    
+	    
+	     
 
 }
